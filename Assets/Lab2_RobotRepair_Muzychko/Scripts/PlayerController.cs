@@ -1,21 +1,31 @@
-using UnityEngine; 
-using UnityEngine.InputSystem; 
+using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class PlayerController : MonoBehaviour 
-{ 
-    public InputAction MoveAction; 
+public class PlayerController : MonoBehaviour
+{
+    public InputAction MoveAction;
+    public float speed = 3.0f;
 
-    void Start() 
-    { 
-        MoveAction.Enable(); 
-    } 
+    private Rigidbody2D rigidbody2d;
+    private Vector2 moveInput;
 
-    void Update() 
-    { 
-        Vector2 move = MoveAction.ReadValue<Vector2>(); 
-        Debug.Log(move); 
+    void Start()
+    {
+        MoveAction.Enable();
+        rigidbody2d = GetComponent<Rigidbody2D>();
+    }
 
-        Vector2 position = (Vector2)transform.position + move * 3.0f * Time.deltaTime; 
-        transform.position = position; 
-    } 
+    void Update()
+    {
+        // Зчитуємо ввід від гравця у звичайному Update
+        moveInput = MoveAction.ReadValue<Vector2>();
+    }
+
+    void FixedUpdate()
+    {
+        // Переміщуємо фізичне тіло у FixedUpdate без трясіння
+        Vector2 position = rigidbody2d.position;
+        position += moveInput * speed * Time.fixedDeltaTime;
+        rigidbody2d.MovePosition(position);
+    }
 }

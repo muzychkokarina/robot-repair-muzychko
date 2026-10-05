@@ -6,26 +6,58 @@ public class PlayerController : MonoBehaviour
     public InputAction MoveAction;
     public float speed = 3.0f;
 
-    private Rigidbody2D rigidbody2d;
-    private Vector2 moveInput;
+    public int maxHealth = 5;
+    public int health { get { return currentHealth; } }
+    int currentHealth;
+
+    public float timeInvincible = 2.0f;
+    bool isInvincible;
+    float damageCooldown;
+
+    Rigidbody2D rigidbody2d;
+    Vector2 moveInput;
 
     void Start()
     {
         MoveAction.Enable();
         rigidbody2d = GetComponent<Rigidbody2D>();
+        currentHealth = maxHealth;
     }
 
     void Update()
     {
-        // Зчитуємо ввід від гравця у звичайному Update
         moveInput = MoveAction.ReadValue<Vector2>();
+
+        // Таймер невразливості
+        if (isInvincible)
+        {
+            damageCooldown -= Time.deltaTime;
+            if (damageCooldown < 0)
+            {
+                isInvincible = false;
+            }
+        }
     }
 
     void FixedUpdate()
     {
-        // Переміщуємо фізичне тіло у FixedUpdate без трясіння
-        Vector2 position = rigidbody2d.position;
-        position += moveInput * speed * Time.fixedDeltaTime;
+        Vector2 position = rigidbody2d.position + moveInput * speed * Time.deltaTime;
         rigidbody2d.MovePosition(position);
+    }
+
+    public void ChangeHealth(int amount)
+    {
+        if (amount < 0)
+        {
+            if (isInvincible)
+            {
+                return;
+            }
+            isInvincible = true;
+            damageCooldown = timeInvincible;
+        }
+
+        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+        Debug.Log(currentHealth + "/" + maxHealth);
     }
 }

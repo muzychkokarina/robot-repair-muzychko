@@ -28,7 +28,6 @@ public class PlayerController : MonoBehaviour
     {
         moveInput = MoveAction.ReadValue<Vector2>();
 
-        // Таймер невразливості
         if (isInvincible)
         {
             damageCooldown -= Time.deltaTime;

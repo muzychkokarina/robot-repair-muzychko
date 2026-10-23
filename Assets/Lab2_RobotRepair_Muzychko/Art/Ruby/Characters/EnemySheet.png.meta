@@ -1,5 +1,12 @@
 fileFormatVersion: 2
 guid: 651c4abeb0812e74685da0e5a31c8dff
+AssetOrigin:
+  serializedVersion: 1
+  productId: 271239
+  packageName: 'Unity Learn | 2D Adventure Game: Robot Repair'
+  packageVersion: 2.0.0
+  assetPath: Assets/_2DAdventureGame/Art/Ruby/Characters/EnemySheet.png
+  uploadId: 832758
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -108,7 +115,7 @@ TextureImporter:
   spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 150
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -139,7 +146,7 @@ TextureImporter:
     overridden: 0
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
     buildTarget: Standalone
     maxTextureSize: 1024
@@ -152,7 +159,7 @@ TextureImporter:
     overridden: 0
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 1
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
     buildTarget: Server
     maxTextureSize: 1024
@@ -170,419 +177,441 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MrClockworkWalkUp1
+      name: EnemySheet_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 1023.2
+        y: 1024
         width: 256
-        height: 255.8
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        height: 255
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 44d3536376ff1a8499d4d9cb0a9ea578
-      internalID: 21300000
+      spriteID: 3ecc0fca208c34e48b8efcd71e339c0f
+      internalID: 836391236
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MrClockworkWalkUp2
+      name: EnemySheet_1
       rect:
         serializedVersion: 2
         x: 256
-        y: 1023.2
+        y: 1024
         width: 256
-        height: 255.8
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        height: 255
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8702c83c87862194da299cbfa4ed8671
-      internalID: 21300002
+      spriteID: 9e0e63f681f8b4bd6b041af33d0aa428
+      internalID: -1177421312
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MrClockworkWalkUp3
+      name: EnemySheet_2
       rect:
         serializedVersion: 2
         x: 512
-        y: 1023.2
+        y: 1024
         width: 256
-        height: 255.8
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        height: 255
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 597548bccd0bcb241831099c94dcc7c7
-      internalID: 21300004
+      spriteID: 9a8c9266ed54c4957a310cdc7256a1d5
+      internalID: 1687156335
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MrClockworkWalkUp4
+      name: EnemySheet_3
       rect:
         serializedVersion: 2
         x: 768
-        y: 1023.2
+        y: 1024
         width: 256
-        height: 255.8
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        height: 255
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8a13196e3a0e5af449e4797266edfe21
-      internalID: 21300006
+      spriteID: 933830d2616df48728950d202a124901
+      internalID: 518877683
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MrClockworkWalkDown1
+      name: EnemySheet_4
       rect:
         serializedVersion: 2
         x: 0
-        y: 768.2
+        y: 769
         width: 256
-        height: 255.8
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        height: 255
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0cbcc90d336cce4469caa6c0e47ff90c
-      internalID: 21300008
+      spriteID: d24a9d9b2f815439ebb80ec3b33a1fb6
+      internalID: 921604470
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MrClockworkWalkDown2
+      name: EnemySheet_5
       rect:
         serializedVersion: 2
         x: 256
-        y: 768.2
+        y: 769
         width: 256
-        height: 255.8
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        height: 255
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c0642b38a651764c8dd1e54f4f518f9
-      internalID: 21300010
+      spriteID: 70de28697838248ceaded332cb94f2a1
+      internalID: -2067147866
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MrClockworkWalkDown3
+      name: EnemySheet_6
       rect:
         serializedVersion: 2
         x: 512
-        y: 768.2
+        y: 769
         width: 256
-        height: 255.8
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        height: 255
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 46828996dfe9a81448ec4af389322474
-      internalID: 21300012
+      spriteID: 7323b7593b59b43278636c5a52510879
+      internalID: 1181286710
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MrClockworkWalkDown4
+      name: EnemySheet_7
       rect:
         serializedVersion: 2
         x: 768
-        y: 768.2
+        y: 769
         width: 256
-        height: 255.8
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        height: 255
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2b56d0acbdf9d1c4a89603c2bb053bef
-      internalID: 21300014
+      spriteID: a82da74301b964778acd6fbcbefd3e61
+      internalID: 130255793
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MrClockworkWalkSides1
+      name: EnemySheet_8
       rect:
         serializedVersion: 2
         x: 0
-        y: 513.2
+        y: 514
         width: 256
-        height: 255.8
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        height: 255
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 136b11be60fe5584db649686551fe96a
-      internalID: 21300016
+      spriteID: 202484bfc5d4c460aa905fad4de7cc94
+      internalID: 887887360
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MrClockworkWalkSides2
+      name: EnemySheet_9
       rect:
         serializedVersion: 2
         x: 256
-        y: 513.2
+        y: 514
         width: 256
-        height: 255.8
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        height: 255
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 60a30b3fdd3fc22488daaa238f5450d3
-      internalID: 21300018
+      spriteID: 9477a6529d24648758e4d0981f5ff44a
+      internalID: 962199892
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MrClockworkWalkSides3
+      name: EnemySheet_10
       rect:
         serializedVersion: 2
         x: 512
-        y: 513.2
+        y: 514
         width: 256
-        height: 255.8
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        height: 255
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d6954e5b7ccc9bd4d990722b4403778d
-      internalID: 21300020
+      spriteID: f327f54c876384c0c91b880154eb597b
+      internalID: 200385778
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MrClockworkWalkSides4
+      name: EnemySheet_11
       rect:
         serializedVersion: 2
         x: 768
-        y: 513.2
+        y: 514
         width: 256
-        height: 255.8
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        height: 255
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4103a8e8a12a0c94f9c0061314ac4686
-      internalID: 21300022
+      spriteID: 5252ec9fa56c94cf2b76af9a01489adb
+      internalID: -459761159
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MrClockworkIdleSides
+      name: EnemySheet_12
       rect:
         serializedVersion: 2
         x: 0
-        y: 258.2
+        y: 259
         width: 256
-        height: 255.8
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        height: 255
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d7dd87451f403e243a4d28df4a01b8d2
-      internalID: 21300024
+      spriteID: 24196c8a237e346fab751b9ffcc2f024
+      internalID: -117138043
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MrClockworkIdleDown
+      name: EnemySheet_13
       rect:
         serializedVersion: 2
         x: 256
-        y: 258.2
+        y: 259
         width: 256
-        height: 255.8
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        height: 255
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b6c48f3cd0159bb43ad323340d25d769
-      internalID: 21300026
+      spriteID: 1605a12f51cb0417d931f0a536dc8947
+      internalID: 1977101346
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MrClockworkIdleUp
+      name: EnemySheet_14
       rect:
         serializedVersion: 2
         x: 512
-        y: 258.2
+        y: 259
         width: 256
-        height: 255.8
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        height: 255
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ab20a81d0f84bd644a9b2afb65e26883
-      internalID: 21300028
+      spriteID: bcceaec21ed18436b949510de9d911f9
+      internalID: -1785550217
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MrClockworkFixed1
+      name: EnemySheet_15
       rect:
         serializedVersion: 2
         x: 768
-        y: 258.2
+        y: 259
         width: 256
-        height: 255.8
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        height: 255
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7103ee228a4889b47a1ab5714b28d6cd
-      internalID: 21300030
+      spriteID: 153c9405a20724e26b7237e8f68230a6
+      internalID: -1845677642
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MrClockworkFixed2
+      name: EnemySheet_16
       rect:
         serializedVersion: 2
         x: 0
-        y: 3.199997
+        y: 4
         width: 256
-        height: 255.8
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        height: 255
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 35117d15a0b5a3548bd1a6730feedd73
-      internalID: 21300032
+      spriteID: 5d75560c9437b4c888993d7b92793574
+      internalID: 1973462489
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MrClockworkFixed3
+      name: EnemySheet_17
       rect:
         serializedVersion: 2
         x: 256
-        y: 5
+        y: 4
         width: 256
-        height: 256
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        height: 255
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e93b4c2cd601ae4ca12ffbab0fb1b66
-      internalID: 21300034
+      spriteID: e9e5c78c2e73b44f9aede3c2eb9af1e5
+      internalID: 1615957031
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: MrClockworkFixed4
+      name: EnemySheet_18
       rect:
         serializedVersion: 2
         x: 512
-        y: 3.199997
+        y: 4
         width: 256
-        height: 255.8
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+        height: 255
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ca85f1cd8069d8b4c92a96559b3df8fd
-      internalID: 21300036
+      spriteID: db9502f4f92ea4f58ba34f92fc7fcda7
+      internalID: -487233487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: EnemySheet_19
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 4
+        width: 256
+        height: 255
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bcd924f4f5594cbc8f3f890b1718948
+      internalID: -1170121708
       vertices: []
       indices: 
       edges: []
@@ -599,36 +628,32 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":4.0,"y":5.0},"gridSpriteSize":{"x":256.0,"y":255.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":2,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      MrClockworkFixed1: 21300030
-      MrClockworkFixed2: 21300032
-      MrClockworkFixed3: 21300034
-      MrClockworkFixed4: 21300036
-      MrClockworkIdleDown: 21300026
-      MrClockworkIdleSides: 21300024
-      MrClockworkIdleUp: 21300028
-      MrClockworkWalkDown1: 21300008
-      MrClockworkWalkDown2: 21300010
-      MrClockworkWalkDown3: 21300012
-      MrClockworkWalkDown4: 21300014
-      MrClockworkWalkSides1: 21300016
-      MrClockworkWalkSides2: 21300018
-      MrClockworkWalkSides3: 21300020
-      MrClockworkWalkSides4: 21300022
-      MrClockworkWalkUp1: 21300000
-      MrClockworkWalkUp2: 21300002
-      MrClockworkWalkUp3: 21300004
-      MrClockworkWalkUp4: 21300006
+      EnemySheet_0: 836391236
+      EnemySheet_1: -1177421312
+      EnemySheet_10: 200385778
+      EnemySheet_11: -459761159
+      EnemySheet_12: -117138043
+      EnemySheet_13: 1977101346
+      EnemySheet_14: -1785550217
+      EnemySheet_15: -1845677642
+      EnemySheet_16: 1973462489
+      EnemySheet_17: 1615957031
+      EnemySheet_18: -487233487
+      EnemySheet_19: -1170121708
+      EnemySheet_2: 1687156335
+      EnemySheet_3: 518877683
+      EnemySheet_4: 921604470
+      EnemySheet_5: -2067147866
+      EnemySheet_6: 1181286710
+      EnemySheet_7: 130255793
+      EnemySheet_8: 887887360
+      EnemySheet_9: 962199892
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 271239
-  packageName: 'Unity Learn | 2D Adventure Game: Robot Repair'
-  packageVersion: 2.0.0
-  assetPath: Assets/_2DAdventureGame/Art/Ruby/Characters/EnemySheet.png
-  uploadId: 832758

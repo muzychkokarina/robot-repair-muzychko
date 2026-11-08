@@ -6,7 +6,10 @@ public class EnemyController : MonoBehaviour
     public bool vertical = false;
     public float changeTime = 3.0f;
 
-    Rigidbody2D rigidbody2d; // Перейменовано з rigidbody2D
+    // Публічна властивість для GameManager
+    public bool isBroken { get { return broken; } }
+
+    Rigidbody2D rigidbody2d;
     Animator animator;
     float timer;
     int direction = 1;
@@ -54,14 +57,14 @@ public class EnemyController : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D other)
-{
-    PlayerController player = other.GetComponent<PlayerController>();
-
-    if (player != null)
     {
-        player.ChangeHealth(-1);
+        PlayerController player = other.GetComponent<PlayerController>();
+
+        if (player != null)
+        {
+            player.ChangeHealth(-1);
+        }
     }
-}
 
     public void Fix()
     {

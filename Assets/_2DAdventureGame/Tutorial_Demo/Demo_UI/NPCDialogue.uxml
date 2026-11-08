@@ -1,0 +1,5 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="Background" style="flex-grow: 1; background-image: url(&quot;project://database/Assets/_2DAdventureGame/Tutorial_Demo/Demo_Art/Ruby/UI/UIDialogueBox.png?fileID=2800000&amp;guid=e19efba90db658c4980b2a4d32206764&amp;type=3#UIDialogueBox&quot;); background-color: rgba(0, 0, 0, 0);">
+        <ui:Label text="Привіт! Натисни X, щоб поговорити зі мною!" name="Label" style="height: 451px; width: 350px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 25px; padding-right: 14px; padding-bottom: 25px; padding-left: 25px; white-space: normal; font-size: 60%; -unity-font-style: bold; color: rgb(255, 255, 255); flex-direction: row;"/>
+    </ui:VisualElement>
+</ui:UXML>

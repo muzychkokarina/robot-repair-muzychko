@@ -11,30 +11,20 @@ public class Projectile : MonoBehaviour
 
     public void Launch(Vector2 direction, float force)
     {
-        if (rigidbody2d == null)
-        {
-            rigidbody2d = GetComponent<Rigidbody2D>();
-        }
-
-        Debug.Log("Снаряд отримав напрямок: " + direction + " та силу: " + force);
-
         if (rigidbody2d != null)
         {
-            // Використовуємо пряме задання швидкості, щоб обійти будь-які баги з AddForce
-            rigidbody2d.linearVelocity = direction * 8f; 
-        }
-        else
-        {
-            Debug.LogError("Rigidbody2D НЕ ЗНАЙДЕНО на снаряді!");
+            rigidbody2d.AddForce(direction * force);
         }
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        EnemyController e = other.GetComponent<EnemyController>();
-        if (e != null)
+        EnemyController enemy =
+            other.GetComponent<EnemyController>();
+
+        if (enemy != null)
         {
-            e.Fix();
+            enemy.Fix();
             Destroy(gameObject);
         }
     }

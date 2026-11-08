@@ -1,3 +1,4 @@
+
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -5,115 +6,130 @@ public class PlayerController : MonoBehaviour
 {
     public InputAction MoveAction;
     public InputAction LaunchAction;
-    public GameObject projectilePrefab;
+    public InputAction TalkAction;
 
-    public float speed = 3.0f;
+    public GameObject ProjectilePrefab;
 
-    public int maxHealth = 5;
-    public int health { get { return currentHealth; } }
-    int currentHealth;
+    public float Speed = 3.0f;
+    public int MaxHealth = 5;
+    public float TimeInvincible = 2.0f;
 
-    public float timeInvincible = 2.0f;
-    bool isInvincible;
-    float damageCooldown;
+    public int health
+    {
+        get { return currentHealth; }
+    }
 
-    Rigidbody2D rigidbody2d;
-    Animator animator;
-    SpriteRenderer spriteRenderer;
+    private int currentHealth;
+    private bool isInvincible;
+    private float invincibleTimer;
 
-    Vector2 moveInput;
-    Vector2 lookDirection = new Vector2(1, 0);
+    private Rigidbody2D rigidbody2d;
+    private Vector2 move;
+    private Vector2 lookDirection = new Vector2(1, 0);
+    private Animator animator;
+    private SpriteRenderer spriteRenderer;
 
-    private void Start()
+    private NonPlayerCharacter lastNonPlayerCharacter;
+
+    private void OnEnable()
+    {
+        MoveAction.Enable();
+        LaunchAction.Enable();
+        TalkAction.Enable();
+    }
+
+    private void OnDisable()
+    {
+        MoveAction.Disable();
+        LaunchAction.Disable();
+        TalkAction.Disable();
+    }
+
+    void Start()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
 
-        currentHealth = maxHealth;
+        if (spriteRenderer == null)
+            spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
-        MoveAction.Enable();
-        LaunchAction.Enable();
-
-        animator.SetFloat("Look X", lookDirection.x);
-        animator.SetFloat("Look Y", lookDirection.y);
-        animator.SetFloat("Speed", 0f);
+        currentHealth = MaxHealth;
     }
 
     void Update()
     {
-        moveInput = MoveAction.ReadValue<Vector2>();
+        move = MoveAction.ReadValue<Vector2>();
 
-        if (!Mathf.Approximately(moveInput.x, 0.0f) ||
-            !Mathf.Approximately(moveInput.y, 0.0f))
+        if (!Mathf.Approximately(move.x, 0) ||
+            !Mathf.Approximately(move.y, 0))
         {
-            lookDirection.Set(moveInput.x, moveInput.y);
-            lookDirection.Normalize();
+            lookDirection = move.normalized;
         }
 
-        // Виправлене віддзеркалення спрайта
-        if (lookDirection.x < -0.1f)
-        {
-            spriteRenderer.flipX = false; // Змінено на false для лівого напрямку
-        }
-        else if (lookDirection.x > 0.1f)
-        {
-            spriteRenderer.flipX = true;  // Змінено на true для правого напрямку
-        }
-
-        animator.SetFloat("Look X", lookDirection.x);
+        animator.SetFloat("Look X", -lookDirection.x);
         animator.SetFloat("Look Y", lookDirection.y);
-        animator.SetFloat("Speed", moveInput.magnitude);
+        animator.SetFloat("Speed", move.magnitude);
+
+        if (isInvincible)
+        {
+            invincibleTimer -= Time.deltaTime;
+
+            if (invincibleTimer < 0)
+                isInvincible = false;
+        }
 
         if (LaunchAction.WasPressedThisFrame())
         {
             Launch();
         }
 
-        if (isInvincible)
-        {
-            damageCooldown -= Time.deltaTime;
+        RaycastHit2D hit = Physics2D.Raycast(
+            rigidbody2d.position + Vector2.up * 0.2f,
+            lookDirection,
+            1.5f,
+            LayerMask.GetMask("NPC")
+        );
 
-            if (damageCooldown < 0)
+        if (hit.collider != null)
+        {
+            NonPlayerCharacter npc =
+                hit.collider.GetComponent<NonPlayerCharacter>();
+
+            if (npc != null)
             {
-                isInvincible = false;
+                npc.dialogueBubble.SetActive(true);
+                lastNonPlayerCharacter = npc;
+                FindFriend();
             }
+        }
+        else
+        {
+            if (lastNonPlayerCharacter != null)
+            {
+                lastNonPlayerCharacter.dialogueBubble.SetActive(false);
+                lastNonPlayerCharacter = null;
+            }
+        }
+    }
+
+    void LateUpdate()
+    {
+        if (spriteRenderer != null &&
+            !Mathf.Approximately(lookDirection.x, 0))
+        {
+            spriteRenderer.flipX = lookDirection.x > 0;
         }
     }
 
     void FixedUpdate()
     {
-        Vector2 position = rigidbody2d.position
-            + moveInput * speed * Time.fixedDeltaTime;
+        Vector2 position = rigidbody2d.position;
+
+        position.x += Speed * move.x * Time.fixedDeltaTime;
+        position.y += Speed * move.y * Time.fixedDeltaTime;
 
         rigidbody2d.MovePosition(position);
-    }
-
-    public void Launch()
-    {
-        if (projectilePrefab == null)
-            return;
-
-        GameObject projectileObject = Instantiate(
-            projectilePrefab,
-            rigidbody2d.position + lookDirection * 0.5f,
-            Quaternion.identity
-        );
-
-        Projectile projectile = projectileObject.GetComponent<Projectile>();
-
-        if (projectile != null)
-        {
-            Vector2 direction = lookDirection;
-
-            if (direction == Vector2.zero)
-            {
-                direction = Vector2.right;
-            }
-
-            projectile.Launch(direction, 300f);
-            animator.SetTrigger("Launch");
-        }
     }
 
     public void ChangeHealth(int amount)
@@ -124,17 +140,60 @@ public class PlayerController : MonoBehaviour
                 return;
 
             isInvincible = true;
-            damageCooldown = timeInvincible;
-
-            animator.SetTrigger("Hit");
+            invincibleTimer = TimeInvincible;
         }
 
         currentHealth = Mathf.Clamp(
             currentHealth + amount,
             0,
-            maxHealth
+            MaxHealth
         );
 
-        Debug.Log(currentHealth + "/" + maxHealth);
+        if (UIHandler.instance != null)
+        {
+            UIHandler.instance.SetHealthValue(
+                currentHealth / (float)MaxHealth
+            );
+        }
+    }
+
+    void Launch()
+  {
+        Debug.Log("СТРІЛЬБУ ВИКЛИКАНО!");
+
+        if (ProjectilePrefab == null)
+        {
+            Debug.LogError("ProjectilePrefab НЕ ПІДКЛЮЧЕНИЙ!");
+            return;
+        }
+
+        Debug.Log("Префаб снаряда знайдено!");
+
+        GameObject projectileObject = Instantiate(
+            ProjectilePrefab,
+            rigidbody2d.position + lookDirection * 0.5f,
+            Quaternion.identity
+        );
+
+        Projectile projectile =
+            projectileObject.GetComponent<Projectile>();
+
+        if (projectile != null)
+        {
+            projectile.Launch(lookDirection, 300);
+        }
+
+        animator.SetTrigger("Launch");
+    }
+
+    void FindFriend()
+    {
+        if (TalkAction.WasPressedThisFrame())
+        {
+            if (UIHandler.instance != null)
+            {
+                UIHandler.instance.DisplayDialogue();
+            }
+        }
     }
 }

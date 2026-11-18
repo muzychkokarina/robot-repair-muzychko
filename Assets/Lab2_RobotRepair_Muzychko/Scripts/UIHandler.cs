@@ -1,4 +1,3 @@
-
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -6,7 +5,7 @@ public class UIHandler : MonoBehaviour
 {
     public static UIHandler instance { get; private set; }
 
-    public float displayTime = 4.0f;
+    public float displayTime = 8.0f;
 
     private VisualElement m_NonPlayerDialogue;
     private Label m_DialogueLabel;
@@ -47,10 +46,17 @@ public class UIHandler : MonoBehaviour
             m_NonPlayerDialogue.style.display = DisplayStyle.None;
             m_DialogueLabel = m_NonPlayerDialogue.Q<Label>();
 
-            Debug.Log("ТЕКСТ LABEL: " + (m_DialogueLabel == null ? "НЕ ЗНАЙДЕНО" : "ЗНАЙДЕНО"));
-
             if (m_DialogueLabel == null)
+            {
                 Debug.LogError("Label усередині NPCDialogue не знайдено!");
+            }
+            else
+            {
+                // Виправлення вузького тексту: Label на всю ширину, текст переноситься по словах
+                m_DialogueLabel.style.width = Length.Percent(100);
+                m_DialogueLabel.style.flexShrink = 0;
+                m_DialogueLabel.style.whiteSpace = WhiteSpace.Normal;
+            }
         }
 
         SetHealthValue(1.0f);
@@ -80,16 +86,13 @@ public class UIHandler : MonoBehaviour
 
     public void DisplayDialogue()
     {
-        Debug.Log("DisplayDialogue викликано!");
-
         if (m_NonPlayerDialogue == null || m_DialogueLabel == null)
         {
             Debug.LogError("Не знайдено діалогове вікно або Label!");
             return;
         }
 
-        m_DialogueLabel.text = "Привіт! Радий тебе бачити!";
-        Debug.Log("ТЕКСТ В LABEL: " + m_DialogueLabel.text);
+        m_DialogueLabel.text = "Роботи на болоті зламалися й шкодять усім. Полагодь усіх трьох, але бережи здоров'я!";
         m_NonPlayerDialogue.style.display = DisplayStyle.Flex;
 
         m_TimerDisplay = displayTime;
